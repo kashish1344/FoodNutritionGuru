@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Wizard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            background: #ff7f50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ff6347;
+        }
+        .results {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+        .results h2 {
+            margin-top: 0;
+        }
+        .results p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nutrition Wizard</h1>
+    <form method="POST">
+        <label for="meal_description">Describe Your Meal:</label>
+        <input type="text" id="meal_description" name="meal_description" required>
+        <button type="submit">Analyze Nutrition</button>
+    </form>
+    {% if nutrition_info %}
+    <div class="results">
+        <h2>Nutrition Information</h2>
+        <p><strong>Calories:</strong> {{ nutrition_info.calories }}</p>
+        <p><strong>Proteins:</strong> {{ nutrition_info.totalNutrients.PROCNT.quantity }}g</p>
+        <p><strong>Fats:</strong> {{ nutrition_info.totalNutrients.FAT.quantity }}g</p>
+        <p><strong>Carbohydrates:</strong> {{ nutrition_info.totalNutrients.CHOCDF.quantity }}g</p>
+    </div>
+    {% endif %}
+</body>
+</html>

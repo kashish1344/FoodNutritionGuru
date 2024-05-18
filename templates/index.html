@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-FitFuel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .header img {
+            height: 60px; /* Adjust height as needed */
+            margin-right: 15px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+        }
+
+        .box {
+            display: inline-block;
+            width: 30%;
+            margin: 1.66%;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+        }
+
+        .box-content {
+            padding: 20px;
+        }
+
+        .box h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin: 0 0 10px;
+        }
+
+        .box p {
+            font-size: 1em;
+            color: #666;
+            margin: 0 0 20px;
+        }
+
+        .box a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .box a:hover {
+            color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .box {
+                width: 90%;
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI-FitFuel</h1>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/Nutrition.jpg') }}" alt="Nutrient Insights">
+            <div class="box-content">
+                <h2>Nutrient Insights</h2>
+                <p>Get detailed nutritional information for your meals and ingredients.</p>
+                <a href="{{ url_for('nutrition') }}">Learn More</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/Recipe.jpg') }}" alt="Recipe Search">
+            <div class="box-content">
+                <h2>Culinary Explorer</h2>
+                <p>Discover delicious recipes based on your favorite ingredients.</p>
+                <a href="{{ url_for('recipes') }}">Learn More</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/food.png') }}" alt="Food Facts">
+            <div class="box-content">
+                <h2>Food Facts</h2>
+                <p>Explore detailed information about various foods and their nutrients.</p>
+                <a href="{{ url_for('food') }}">Learn More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
