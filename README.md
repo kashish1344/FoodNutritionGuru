@@ -2,6 +2,10 @@
 
 This project is a Flask-based web application that provides nutrition analysis, recipe search, and food information using the Edamam API. Users can input meal descriptions to get nutritional information, search for recipes, and find detailed food information.
 
+# Demo Video
+
+https://github.com/kashish1344/FoodNutritionGuru/assets/83247791/eac495d8-aa26-4282-a70e-5d1cf6214bc2
+
 ## Features
 
 - **Nutrition Analysis:** Input meal descriptions to get detailed nutritional information.
